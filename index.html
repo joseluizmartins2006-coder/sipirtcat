@@ -1,0 +1,179 @@
+
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fuga do Espírito</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="script.js" defer></script>
+</head>
+<body>
+    <main class="game-container">
+
+        <header class="game-header">
+            <div>
+                <h1>🙀👻 Spirit Cat</h1>
+                <p>Resolva as contas e escape do espírito!</p>
+            </div>
+            <div class="lives-box" id="lives-box" hidden>
+                <span>Vidas:</span>
+                <span id="lives">❤️ ❤️ ❤️</span>
+            </div>
+        </header>
+
+        <!-- TELA DE LOGIN -->
+        <section id="login-screen" class="screen login-screen">
+            <div class="big-character">🐈‍⬛</div>
+            <h2>Entre nessa aventura!</h2>
+            <p>Um espírito está perseguindo o gatinho. Você consegue salvá-lo?</p>
+
+            <form id="login-form">
+                <label for="player-name">Qual é o seu nome?</label>
+                <input
+                    type="text"
+                    id="player-name"
+                    placeholder="Digite seu nome..."
+                    maxlength="20"
+                    required
+                    autocomplete="given-name"
+                >
+                <button type="submit" class="primary-btn">
+                    Começar aventura →
+                </button>
+            </form>
+        </section>
+
+        <!-- TELA DE TUTORIAL -->
+        <section id="tutorial-screen" class="screen" hidden>
+            <div class="big-character">📖</div>
+            <h2>Como jogar?</h2>
+            <p>Olá, <strong id="tutorial-player"></strong>! Aprenda as regras antes de começar.</p>
+
+            <div class="tutorial-list">
+                <div class="tutorial-item">
+                    <span>❤️</span>
+                    <div>
+                        <strong>Você tem 3 vidas</strong>
+                        <p>Cada resposta errada faz você perder uma vida.</p>
+                    </div>
+                </div>
+
+                <div class="tutorial-item">
+                    <span>🧮</span>
+                    <div>
+                        <strong>Resolva as contas</strong>
+                        <p>Escolha uma das quatro alternativas para cada pergunta.</p>
+                    </div>
+                </div>
+
+                <div class="tutorial-item">
+                    <span>👻</span>
+                    <div>
+                        <strong>Cuidado com o espírito!</strong>
+                        <p>Quando você erra, ele se aproxima do gatinho.</p>
+                    </div>
+                </div>
+
+                <div class="tutorial-item">
+                    <span>🏆</span>
+                    <div>
+                        <strong>Chegue até o final</strong>
+                        <p>Responda às 10 perguntas sem perder todas as vidas para vencer.</p>
+                    </div>
+                </div>
+            </div>
+
+            <button id="start-game-btn" class="primary-btn">
+                Entendi! Vamos jogar 🎮
+            </button>
+        </section>
+
+        <!-- TELA DO JOGO -->
+        <section id="game-screen" hidden>
+            <div class="player-greeting">
+                Jogador: <strong id="player-display"></strong>
+            </div>
+
+            <section class="scene">
+                <div class="moon"></div>
+                <div class="stars">✦　 ·　 ✧　 ·　 ✦</div>
+                <div class="forest">🌲　🌲　🌳　🌲　🌳　🌲</div>
+
+                <div class="chase-area">
+                    <div id="spirit" class="character spirit">
+                        👻
+                        <span>Espírito</span>
+                    </div>
+
+                    <div id="cat" class="character cat">
+                        🐈
+                        <span>Gatinho</span>
+                    </div>
+                </div>
+
+                <div class="ground"></div>
+
+                <p id="scene-message" class="scene-message">
+                    O espírito está chegando! Corra!
+                </p>
+            </section>
+
+            <section class="quiz-card">
+                <div class="quiz-info">
+                    <span id="question-number">Pergunta 1 de 10</span>
+                    <span id="score">Acertos: 0</span>
+                </div>
+
+                <div class="progress-track">
+                    <div id="progress-bar"></div>
+                </div>
+
+                <h2 id="question">Preparado?</h2>
+                <p id="feedback" aria-live="polite">
+                    Escolha a resposta correta!
+                </p>
+
+                <div id="answers" class="answers"></div>
+
+                <button id="next-btn" class="primary-btn" hidden>
+                    Próxima pergunta →
+                </button>
+            </section>
+        </section>
+
+        <!-- TELA FINAL: VITÓRIA OU DERROTA -->
+        <section id="result-screen" class="screen result-screen" hidden>
+            <div id="result-icon" class="big-character">🏆</div>
+            <h2 id="result-title"></h2>
+            <p id="result-message">você me salvou! E eu te amo! 😻</p>
+
+            <div class="result-stats">
+                <div>
+                    <span class="stat-number" id="final-score">0/10</span>
+                    <span class="stat-label">Acertos</span>
+                </div>
+                <div>
+                    <span class="stat-number" id="final-lives">❤️ ❤️ ❤️</span>
+                    <span class="stat-label">Vidas restantes</span>
+                </div>
+            </div>
+
+            <p id="result-player"></p>
+
+            <button id="play-again-btn" class="primary-btn">
+                🔄 Jogar novamente
+            </button>
+
+            <button id="change-player-btn" class="secondary-btn">
+                Trocar jogador
+            </button>
+        </section>
+
+        <footer>
+            <p>🧠 Use sua inteligência para salvar o gatinho!</p>
+        </footer>
+
+    </main>
+</body>
+</html>
